@@ -3,10 +3,23 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 var api = require('./routes/api');
 var app = express();
 
+mongoose.connect('mongodb://rahul:1234@ds121222.mlab.com:21222/calander',function(err)
+{
+	if (err) {
+	   console.log('Could not connect to MongoDB!');
+	}
+  else
+  {
+    console.log("connected!!!");
+  }
+}
+);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

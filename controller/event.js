@@ -3,7 +3,11 @@ var Event = require('../model/event');
 var calander={};
 
 calander.index=function(req, res, next) {
-      res.send('Express REST index');
+
+Event.find({}, function(err, events) {
+  if (err) throw err;
+  res.json(events);
+});
 }
 
 calander.store=function(req, res, next) {

@@ -40,3 +40,28 @@
   }
 }
 
+.add-btn{
+    position: absolute;
+    top:0px;
+    right: 0px;
+}
+.date-head{
+    position: absolute;
+    top:5px;   
+}
+.event-item{
+    padding: 0px;
+    text-align: center;
+    font-size: 10px;
+}
+.day-card {
+
+    height: 150px;
+}
+.events{
+    margin-top: 5px;
+    overflow: auto;
+}
+.card-title small {
+    font-size: 16px;
+}

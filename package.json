@@ -24,9 +24,10 @@
     "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.10.5",
     "morgan": "^1.8.2",
     "rxjs": "^5.1.0",
-    "mongoose": "^4.10.5",
     "serve-favicon": "^2.4.3",
     "zone.js": "^0.8.4"
   },

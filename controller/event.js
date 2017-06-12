@@ -8,6 +8,7 @@ Event.find({}, function(err, events) {
   if (err) throw err;
   res.json(events);
 });
+
 }
 
 calander.store=function(req, res, next) {
@@ -16,18 +17,15 @@ calander.store=function(req, res, next) {
         title: req.body.title,
         details: req.body.details,
         date: req.body.date,
-    }
-
+    };
 
     var event = new Event(event_value);
-    event.save(function (err) {
-        if (err) return console.log(err);
-
-        console.log("success");
-        })
-
     
-     res.send('Express REST store');
+    event.save(function (err) {
+    if (err) return console.log(err);
+    console.log("success");
+
+        });
 }
 
 calander.update=function(req, res, next) {

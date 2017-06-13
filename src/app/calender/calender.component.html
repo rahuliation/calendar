@@ -1,0 +1,89 @@
+
+<div class="container">
+
+  <div class="row">
+    
+    <div class="col">
+      <br>
+      <div class="btn-group" role="group" aria-label="Basic example">
+           <a routerLink="/{{year}}/{{month-1}}" *ngIf="month!=1" class="btn btn-secondary" routerLinkActive="active"> 
+                <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+                <a routerLink="/{{year-1}}/{{12}}" *ngIf="month==1" class="btn btn-secondary" routerLinkActive="active"> 
+              <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+
+
+  <button type="button" class="btn btn-secondary">{{data.monthNames[data.month]}}</button>
+              <a routerLink="/{{year}}/{{month+1}}" *ngIf="month!=12" class="btn btn-secondary" routerLinkActive="active"> 
+                <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
+                <a routerLink="/{{year+1}}/{{1}}" *ngIf="month==12" class="btn btn-secondary" routerLinkActive="active"> 
+              <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
+
+</div>
+  <br>  
+    <br>  
+    </div>
+  </div>
+ <div class="row seven-cols hidden-md-down ">
+    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Sunday</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Monday</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Tuesday</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>WednesDay</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Thursday</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Friday</b>
+      </div>
+    </div>
+     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+      <div class="card text-center">
+       <b>Saturday</b>
+      </div>
+    </div>
+ 
+ </div>
+  <div class="row seven-cols">
+
+    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12" >
+      <div class="card day-card">
+         <div class="card-block">
+          <a class="btn btn-secondary btn-sm add-btn" href="www.facebook.com" >+</a> 
+          <div class="date-head ">
+           <h1 class="card-title "><b>7 <small class="hidden-md-up">Saturday</small></b>  </h1>
+            
+       
+          </div>
+         </div>
+              <div class="events" >
+                <div class="list-group">
+                <a href="#" class="list-group-item alert-success bg- list-group-item-action event-item">Morbi leo</a>
+                
+              </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>

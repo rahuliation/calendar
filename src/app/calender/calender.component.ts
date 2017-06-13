@@ -33,7 +33,7 @@ export class CalenderComponent implements OnInit {
        this.data=this.service.getData(this.year,this.month);
     });
  
-    
+    console.log(this.data);
     
 
   }

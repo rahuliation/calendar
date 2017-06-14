@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node ./bin/www",
+    "start": "node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -51,6 +51,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "socket.io-client": "^2.0.3",
+    "tether": "^1.4.0",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3",

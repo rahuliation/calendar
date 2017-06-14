@@ -19,7 +19,7 @@ import { NeweventComponent } from './newevent/newevent.component';
     BrowserModule,
     RouterModule.forRoot([
        { 
-        path: 'event/:date', 
+        path: 'newevent/:year/:month/:day', 
         component: NeweventComponent 
       },
       { 

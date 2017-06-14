@@ -24,6 +24,8 @@ export class CalenderComponent implements OnInit {
 
   ) {}
 
+
+
   connectSocket() {
    var socket=socket_connection('http://localhost:3000');  
  this.data=this.service.getData(this.year,this.month);
@@ -43,10 +45,12 @@ export class CalenderComponent implements OnInit {
         
         });
       });
+  }
 
-    
+  getTime(datetime) {
+    var date=new Date(datetime);
+    return date.getHours()+":"+date.getMinutes();
 
-    
   }
 
   ngOnInit() {

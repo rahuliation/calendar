@@ -49,7 +49,7 @@
          <div class="card-block">
    
 
-          <a  routerLink="/event/{{day.date}}" class="btn btn-secondary btn-sm add-btn" href="www.facebook.com" >+</a> 
+          <a  routerLink="/newevent/{{this.year}}/{{this.month}}/{{day.day}}" class="btn btn-secondary btn-sm add-btn" href="www.facebook.com" >+</a> 
           <div class="date-head ">
            <h1 class="card-title "><b>{{ day.day }} <small class="hidden-md-up">{{data.dayNames[day.day_of_week]}}</small></b>  </h1>
             
@@ -60,7 +60,7 @@
                 <div class="list-group">
                   
                 <a href="#"  *ngFor="let event of day.events " class="list-group-item alert-success bg- list-group-item-action event-item">
-                  {{event.title}}
+                 {{getTime(event.date)}} -> {{event.title}}
                   </a>
                 
               </div>

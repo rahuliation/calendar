@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^4.2.2",
     "@angular/router": "^4.2.2",
     "body-parser": "^1.17.2",
+    "coffee-script": "^1.12.6",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
     "mongoose": "^4.10.6",

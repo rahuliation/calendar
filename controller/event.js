@@ -9,18 +9,12 @@ Event.find({}, function(err, events) {
   res.json(events);
 });
 
+ 
 }
 
 event_controller.socket=function(req, res, next) {
 
 
-req.app.io.on('connection', function (socket) {
-    console.log("socket_connected");
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
 
 }
 
@@ -35,11 +29,15 @@ event_controller.store=function(req, res, next) {
 
     var event = new Event(event_value);
     
+    
     event.save(function (err) {
     if (err) return console.log(err);
-    console.log("success");
-
-        });
+          Event.find({}, function(err, events) {
+                    if (err) throw err;
+                 req.io.emit('update_event_res', { events: events });
+             });
+    });
+    res.json({status:"success"});
 }
 
 event_controller.update=function(req, res, next) {

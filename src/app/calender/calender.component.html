@@ -20,8 +20,6 @@
 
                 <a routerLink="/{{year+1}}/{{1}}" *ngIf="month==12" class="btn btn-secondary" routerLinkActive="active"> 
               <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-
-
 </div>
   <br>  
     <br>  
@@ -38,7 +36,7 @@
  </div>
   <div class="row seven-cols">
 
-      <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12" *ngFor="let day of data.blank_days " >
+      <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-md-down" *ngFor="let day of data.blank_days " >
       <div class="card day-card">
          <div class="card-block">
          </div>
@@ -53,14 +51,17 @@
 
           <a  routerLink="/event/{{day.date}}" class="btn btn-secondary btn-sm add-btn" href="www.facebook.com" >+</a> 
           <div class="date-head ">
-           <h1 class="card-title "><b>{{ day.day }} <small class="hidden-md-up">Saturday</small></b>  </h1>
+           <h1 class="card-title "><b>{{ day.day }} <small class="hidden-md-up">{{data.dayNames[day.day_of_week]}}</small></b>  </h1>
             
        
           </div>
          </div>
               <div class="events" >
                 <div class="list-group">
-                <a href="#" class="list-group-item alert-success bg- list-group-item-action event-item">Morbi leo</a>
+                  
+                <a href="#"  *ngFor="let event of day.events " class="list-group-item alert-success bg- list-group-item-action event-item">
+                  {{event.title}}
+                  </a>
                 
               </div>
               </div>

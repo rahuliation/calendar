@@ -7,7 +7,7 @@ export class CalanderService {
   private month:number;
   private dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thrusday","Friday", "Saturday"];
   private monthNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
-  private dayPerMonth = [31,this.FebNumberOfDays(),31,30,31,30,31,31,30,31,30,31];
+  private dayPerMonth:object;
   constructor() { }
 
   private FebNumberOfDays() {
@@ -23,7 +23,8 @@ export class CalanderService {
       days.push({
         date: new Date(this.year,this.month,index+1),
         day: index+1,
-        day_of_week:new Date(this.year,this.month,index+1).getDay
+        day_of_week:new Date(this.year,this.month,index+1).getDay(),
+        events:[]
       });
     }
     return days;
@@ -44,10 +45,11 @@ export class CalanderService {
   public getData(year:number, month:number) {
     this.year=year;
     this.month=month-1;
+    this.dayPerMonth = [31,this.FebNumberOfDays(),31,30,31,30,31,31,30,31,30,31];
     var firstday=new Date(this.year,this.month,1).getDay();
     var days=this.dayCreator(this.dayPerMonth[this.month]);
     var blank_days=this.blank_day_creator(firstday);
-
+  
     return {
       year:this.year,
       month:this.month,

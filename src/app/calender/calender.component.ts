@@ -14,7 +14,7 @@ export class CalenderComponent implements OnInit {
   year: number;
   month: number;
   private sub: any;
-  data: object;
+  data:any;
   
 
  constructor(
@@ -25,14 +25,27 @@ export class CalenderComponent implements OnInit {
   ) {}
 
   connectSocket() {
-   var socket=socket_connection('http://localhost:3000/s/socket');
+   var socket=socket_connection('http://localhost:3000');  
+ this.data=this.service.getData(this.year,this.month);
 
-    socket.on('connect', function (data) {
-    console.log("connected");
-  });
-    socket.on('news', function (data) {
-    console.log(data);
-  });
+       socket.on('update_event_res', (data)=> {
+        this.data.days.forEach(day => {
+          day.events=[];
+        });
+        data.events.forEach(event => {
+          var event_date=new Date(event.date);
+          if(event_date.getFullYear()==this.year && event_date.getMonth()==this.month-1)
+          {
+          let date=event_date.getDate();
+          this.data.days[date-1].events.push(event);
+
+          }
+        
+        });
+      });
+
+    
+
     
   }
 
@@ -43,14 +56,8 @@ export class CalenderComponent implements OnInit {
      
         this.year = params['year']? +params['year']: new Date().getFullYear();
         this.month = params['month']?  +params['month']:new Date().getMonth()+1;
-       this.data=this.service.getData(this.year,this.month);
-           this.connectSocket();
-
+          this.connectSocket();
     });
- 
- 
-    
-
   }
     ngOnDestroy() {
     this.sub.unsubscribe();

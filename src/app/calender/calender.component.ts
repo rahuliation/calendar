@@ -34,6 +34,7 @@ export class CalenderComponent implements OnInit {
         this.data.days.forEach(day => {
           day.events=[];
         });
+        data.events.sort((a,b) => new Date(a.date).getTime()-new Date(b.date).getTime());
         data.events.forEach(event => {
           var event_date=new Date(event.date);
           if(event_date.getFullYear()==this.year && event_date.getMonth()==this.month-1)
@@ -47,11 +48,7 @@ export class CalenderComponent implements OnInit {
       });
   }
 
-  getTime(datetime) {
-    var date=new Date(datetime);
-    return date.getHours()+":"+date.getMinutes();
-
-  }
+ 
 
   ngOnInit() {
 

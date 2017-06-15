@@ -1,18 +1,41 @@
-<p>
-  New Event
-</p>
+
+
+
 <div class="container">
+<div class="row">
+<div class="col-md-12">
+  <br>
+<a routerLink="/{{date.getFullYear()}}/{{date.getMonth()+1}}"  class="btn btn-secondary" routerLinkActive="active"> 
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
+</div>
+</div>
+
+</div>
+<div class="container ">
   <div class="row">
-    <div class="col-md-12">
-<form>
+    <div class="col-md-8 offset-md-2">
+    <br>
+    <h2> <b>New Event on {{ date | date:"dd, MMMM d, yyyy" }}</b> </h2>
+    <hr>
+<form #eventForm="ngForm" (ngSubmit)="create_event(eventForm.value)" >
   <div class="form-group">
-    <label for="formGroupExampleInput">Example label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    <label for="title">Event Name</label>
+    <input type="text" name="title" class="form-control" id="title" placeholder="Event Name" ngModel>
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Another label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+
+ 
+   <div class="form-group">
+    <label for="description">Description </label>
+    <textarea class="form-control" name="details" id="description" rows="3" placeholder="Event Details" ngModel></textarea>
   </div>
+
+   <div class="form-group">
+    <label for="time"> Time: </label>
+    <input type="time" name="time"  class="form-control" id="time" placeholder="Time" ngModel>
+  </div>
+  <button type="submit" class="btn btn-bs">Create Event</button>
+
 </form>
     </div>
   </div>

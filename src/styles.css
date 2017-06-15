@@ -6,6 +6,7 @@
   .seven-cols .col-md-1,
   .seven-cols .col-sm-1,
   .seven-cols .col-lg-1  {
+    max-width:100%;
     width: 100%;
     *width: 100%;
     margin: 0px;
@@ -45,6 +46,10 @@
     position: absolute;
     top:0px;
     right: 0px;
+    background-color: transparent;
+    color: rgba(41, 43, 44, 0.80);
+    border: 1px solid #ccc;
+    font-weight: bold;
 }
 .date-head{
     position: absolute;
@@ -54,15 +59,29 @@
     padding: 0px;
     text-align: center;
     font-size: 10px;
+    background-color: rgba(41, 43, 44, 0.80);
+    color: #ffffff;
 }
 .day-card {
 
     height: 150px;
 }
 .events{
-    margin-top: 5px;
+    margin-top: 10px;
     overflow: auto;
 }
 .card-title small {
     font-size: 16px;
+}
+.daynames-block {
+    background-color: rgba(41, 43, 44, 0.93);
+    border-radius: 0px;
+
+}
+.daynames{
+    font-weight: 500;
+    margin-top: 7px;
+}
+.day {
+    opacity: 0.8;
 }

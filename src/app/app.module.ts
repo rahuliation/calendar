@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CalenderComponent } from './calender/calender.component';
 import { CalanderService } from './calander.service';
+import { EventService } from './event.service';
 import { NeweventComponent } from './newevent/newevent.component';
 
 @NgModule({
@@ -16,6 +18,7 @@ import { NeweventComponent } from './newevent/newevent.component';
   imports: [
     HttpModule,
     JsonpModule,
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot([
        { 
@@ -33,7 +36,7 @@ import { NeweventComponent } from './newevent/newevent.component';
 
     ])
   ],
-  providers: [CalanderService],
+  providers: [CalanderService,EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

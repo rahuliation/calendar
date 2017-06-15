@@ -20,12 +20,13 @@ event_controller.socket=function(req, res, next) {
 
 
 event_controller.store=function(req, res, next) {
-    
+
     var event_value= {
         title: req.body.title,
         details: req.body.details,
-        date: req.body.date,
+        date: req.body.date
     };
+    console.log(event_value);
 
     var event = new Event(event_value);
     

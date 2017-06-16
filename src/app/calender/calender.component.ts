@@ -29,8 +29,10 @@ export class CalenderComponent implements OnInit {
   connectSocket() {
    var socket=socket_connection('http://localhost:3000');  
  this.data=this.service.getData(this.year,this.month);
-
-       socket.on('update_event_res', (data)=> {
+        socket.on('make update',(data)=>{
+          socket.emit('update_event_req',{})
+        });
+        socket.on('update_event_res', (data)=> {
         this.data.days.forEach(day => {
           day.events=[];
         });

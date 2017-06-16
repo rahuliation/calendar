@@ -8,9 +8,9 @@ var router = express.Router();
 
 router.get('/event', event.index);
 router.post('/event/store', event.store);
-router.get('/event/update', event.update);
+router.get('/event/:id', event.show);
+router.put('/event/update/:id', event.update);
 router.get('/event/delete', event.delete);
-router.get('/event/socket', event.socket);
 router.get('/*', function (req, res, next) {
     res.send("api is runing")
 });

@@ -24,13 +24,16 @@ export class NeweventComponent implements OnInit {
 
     this.date.setHours(time[0]);
     this.date.setMinutes(time[1]);
-    console.log(this.date);
+
     this.eventservice.create_event({
       title:event.title,
       details: event.details,
       date: this.date.toString()
     }
-    );
+    ).subscribe((data)=>{
+      this.router.navigate(['./'+this.date.getFullYear()+'/'+(this.date.getMonth()+1)]);
+
+    });
 
   }
 
@@ -42,7 +45,7 @@ export class NeweventComponent implements OnInit {
 
     });
 
-      console.log(this.date);
+
   }
      
 

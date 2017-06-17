@@ -10,7 +10,7 @@ router.get('/event', event.index);
 router.post('/event/store', event.store);
 router.get('/event/:id', event.show);
 router.put('/event/update/:id', event.update);
-router.get('/event/delete', event.delete);
+router.delete('/event/:id', event.delete);
 router.get('/*', function (req, res, next) {
     res.send("api is runing")
 });

@@ -24,4 +24,9 @@ export class EventService {
    .map((response)=> response.json());
   }
 
+   delete_event( id) {
+      return this.http.delete(this.url+'/api/event/'+id)
+     .map((response)=> response.json());
+  }
+
 }

@@ -21,7 +21,7 @@
 <form [formGroup]="event_form" (ngSubmit)="save(event_form.value)" >
   <div class="form-group">
     <label for="title">Event Name</label>
-  <input type="text" name="title" class="form-control" id="title"  placeholder="Event Name" formControlName="title">
+  <input type="text" [disabled]="!edit" name="title" class="form-control" id="title"  placeholder="Event Name" formControlName="title">
   </div>
 
  
@@ -35,7 +35,7 @@
     <input type="time" name="time"  class="form-control" id="time" formControlName="time" >
   </div>
   <button type="submit" class="btn btn-bs">Save</button>
-  <button type="bittpm" class="btn btn-bs">Delete</button>
+  <button type="button" class="btn btn-bs" (click)="delete()">Delete</button>
 </form>
     </div>
   </div>

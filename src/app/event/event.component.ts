@@ -16,6 +16,7 @@ export class EventComponent implements OnInit {
   event:Event={} as any;
   date=new Date;
   public event_form: FormGroup; 
+  edit=false;
 
  constructor(
     private route: ActivatedRoute,
@@ -61,6 +62,21 @@ export class EventComponent implements OnInit {
       
       
   }
+  delete(){
+    var r = confirm("Press a button!");
+      if (r == true) {
+         this.eventservice.delete_event(this.id).subscribe((data)=>{
+           console.log(data);
+           
+        this.router.navigate(['./'+this.date.getFullYear()+'/'+(this.date.getMonth()+1)]);
+
+    },(err)=>
+    {
+      console.log(err);
+    });
+
+      }
+  }
     save(event) {
 
     var time =event.time.split(":");
@@ -78,10 +94,7 @@ export class EventComponent implements OnInit {
     {
          
       console.log(err);
-    }
-    
-    
-    );
+    });
        
     }
 

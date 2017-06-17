@@ -40,7 +40,6 @@ event_controller.store=function(req, res, next) {
         details: req.body.details,
         date: req.body.date
     };
-    console.log(event_value);
 
     var event = new Event(event_value);
     
@@ -69,6 +68,10 @@ event_controller.update=function(req, res, next) {
 }
 
 event_controller.delete=function(req, res, next) {
-     res.send('Express REST delete');
+    var id=req.params.id;
+    Event.findById(id).remove( function (err){
+    req.io.emit('make update', { });
+    res.json({status:"success"});
+} );
 }
 module.exports= event_controller;

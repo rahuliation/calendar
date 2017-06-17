@@ -71,11 +71,12 @@ export class EventComponent implements OnInit {
       details: event.details,
       date: this.date.toString()
     }).subscribe((data)=>{
-      
-      this.router.navigate(['./'+this.date.getFullYear()+'/'+(this.date.getMonth()+1)]);
+           
+       this.router.navigate(['./'+this.date.getFullYear()+'/'+(this.date.getMonth()+1)]);
 
     },(err)=>
     {
+         
       console.log(err);
     }
     

@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
     <br>
-    <h2> <b>New Event on {{ date | date:"dd, MMMM d, yyyy" }}</b> </h2>
+    <h2> <b>New Event on {{ date | date:"EEEE dd, MMMM d, yyyy" }}</b> </h2>
     <hr>
 <form #eventForm="ngForm" (ngSubmit)="create_event(eventForm.value)" >
   <div class="form-group">

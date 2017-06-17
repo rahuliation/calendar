@@ -56,9 +56,9 @@ event_controller.store=function(req, res, next) {
 event_controller.update=function(req, res, next) {
 
     var id=req.params.id;
-    Event.findById({ name: 'borne' }, function (err, event){
-        if (err) return  res.status(500).send({ error: "boo:(" });
-        event.name = req.body.title;
+    Event.findById(id, function (err, event){
+        if (err) return  res.status(500).send({ error: err });
+        event.title = req.body.title;
         event.details=req.body.details;
         event.date=req.body.date
         event.save();

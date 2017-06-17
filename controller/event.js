@@ -2,6 +2,12 @@ var Event = require('../model/event');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var event_controller={};
+function update_event(socket){
+        Event.find({}, function(err, events) {
+                    if (err) throw err;
+                 socket.emit('update_event_res', { events: events });
+                });
+}
 
 event_controller.index=function(req, res, next) {
 
@@ -46,7 +52,7 @@ event_controller.store=function(req, res, next) {
     
     event.save(function (err) {
     if (err) return  res.status(500).send({ error: "boo:(" });
-    req.io.emit('make update', {});
+         update_event(req.io);
     res.json(event);
     });
 
@@ -61,7 +67,7 @@ event_controller.update=function(req, res, next) {
         event.details=req.body.details;
         event.date=req.body.date
         event.save();
-    req.io.emit('make update', { });
+       update_event(req.io);
     res.json(event);
 });
 
@@ -71,6 +77,7 @@ event_controller.delete=function(req, res, next) {
     var id=req.params.id;
     Event.findById(id).remove( function (err){
     req.io.emit('make update', { });
+           update_event(req.io);
     res.json({status:"success"});
 } );
 }

@@ -43,7 +43,7 @@
     </div>
 
     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12" *ngFor="let day of data.days " >
-      <div class="card day-card bg-faded">
+      <div class="card day-card " [ngClass]= "{'bg-faded': !today(day.date), 'bg-danger': today(day.date), 'text-white': today(day.date)}">
          <div class="card-block">
           <a  routerLink="/newevent/{{this.year}}/{{this.month}}/{{day.day}}" class="btn btn-sm add-btn" href="" >
           <i class="fa fa-plus" aria-hidden="true"></i></a> 
@@ -54,7 +54,7 @@
               <div class="events" >
                 <div class="list-group">
                   
-              <a routerLink="/event/{{event._id}}"   *ngFor="let event of day.events" class=" list-group-item  list-group-item-action event-item">
+              <a routerLink="/event/{{event._id}}" [ngClass]= "{'event-item-active': today(day.date)}"   *ngFor="let event of day.events" class=" list-group-item  list-group-item-action event-item">
                  <b> {{ event.date | date:"hh:mm a" }}</b> : {{event.title | uppercase}}
                   </a>
                 

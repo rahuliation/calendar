@@ -62,6 +62,14 @@
     background-color: rgba(41, 43, 44, 0.80);
     color: #ffffff;
 }
+.event-item-active{
+    padding: 0px;
+    text-align: center;
+    font-size: 10px;
+    background-color: #ffffff;
+    color: rgba(41, 43, 44, 0.80);
+}
+
 .day-card {
 
     height: 150px;

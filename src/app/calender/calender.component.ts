@@ -50,7 +50,11 @@ export class CalenderComponent implements OnInit {
       });
   }
 
- 
+  today(day){
+    var date=new Date(day);
+    var today=new Date();
+    return date.getDate()==today.getDate() && date.getMonth()==today.getMonth()&&date.getFullYear()==today.getFullYear();
+  }
 
   ngOnInit() {
 

@@ -63,7 +63,7 @@ export class EventComponent implements OnInit {
       
   }
   delete(){
-    var r = confirm("Press a button!");
+    var r = confirm("Are You Sure? ");
       if (r == true) {
          this.eventservice.delete_event(this.id).subscribe((data)=>{
            console.log(data);

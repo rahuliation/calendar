@@ -5,7 +5,7 @@
 <div class="row">
 <div class="col-md-12">
   <br>
-<a routerLink="/{{date.getFullYear()}}/{{date.getMonth()+1}}"  class="btn btn-secondary" routerLinkActive="active"> 
+<a routerLink="/{{date.getFullYear()}}/{{date.getMonth()+1}}"  class="btn btn-info btn-lg" routerLinkActive="active"> 
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </a>
 </div>
@@ -16,8 +16,10 @@
   <div class="row" >
     <div class="col-md-8 offset-md-2" >
     <br>
-    <h2> <b> Event on {{ date | date:"EEEE dd MMMM, yyyy" }}</b> </h2>
-    <hr>
+    <div class="card"> 
+       <div class="card-block">
+    <h2 class="card-title"><b> Event on {{ date | date:"EEEE dd MMMM, yyyy" }}</b></h2>
+   
 <form [formGroup]="event_form" (ngSubmit)="save(event_form.value)" >
   <div class="form-group">
     <label for="title">Event Name</label>
@@ -34,9 +36,12 @@
     <label for="time"> Time: </label>
     <input type="time" name="time"  class="form-control" id="time" formControlName="time" >
   </div>
-  <button type="submit" class="btn btn-bs">Save</button>
-  <button type="button" class="btn btn-bs" (click)="delete()">Delete</button>
+  <button type="submit" class="btn btn-primary btn-lg">Save</button>
+  <button type="button" class="btn btn-danger btn-lg" (click)="delete()">Delete</button>
 </form>
+  </div>
+
+       </div>
     </div>
   </div>
 </div>
